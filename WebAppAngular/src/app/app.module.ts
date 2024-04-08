@@ -24,13 +24,14 @@ import { AbpOAuthModule } from '@abp/ng.oauth';
 import { ThemeLeptonXModule } from '@volosoft/abp.ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@volosoft/abp.ng.theme.lepton-x/layouts';
 import { CONTENTS_CONTENT_ROUTE_PROVIDER } from './contents/content/providers/content-route.provider';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-
+    CKEditorModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule.forRoot({

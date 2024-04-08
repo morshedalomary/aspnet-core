@@ -17,13 +17,8 @@
 
 <br/>
 <div class="content" role="main">
-<ckeditor
-  [editor]="Editor"
-  data={{contentDto?.value}}
-  (ready)="onReady($event)"
-  (change)="onChange($event)"
-  >
-</ckeditor>
+  <ckeditor #myEditor [editor]="Editor" [data]="data" [(ngModel)]="contentDto.value" > </ckeditor>
+
 </div>
 <div >
 <button class="btn   btn-primary" type="submit" (click)="onSubmit()">
@@ -34,6 +29,8 @@
   <span class="btn-name">Back</span>
 </button>
 </div>
+
+
 
 
 

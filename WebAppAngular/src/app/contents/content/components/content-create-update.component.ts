@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import {
   NgbDateAdapter,
   NgbCollapseModule,
@@ -25,8 +25,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule, ChangeEvent } from '@ckeditor/ckeditor5-angular';
 import { Location } from '@angular/common'
 
 
@@ -58,15 +57,19 @@ import { Location } from '@angular/common'
   templateUrl: './content-create-update.component.html',
   styles: `::ng-deep.datatable-row-detail { background: transparent !important; }`,
 })
+
+
+
 export class ContentCreateUpdateComponent extends AbstractContentComponent {
 
   contentId: string;
   contentDto : ContentDto 
   nameContent : string
   public Editor = ClassicEditor;
-
+  @ViewChild("myEditor", { static: false }) myEditor: any;
 
   actionName: string ;
+  data: any = `<p>Hello, world!</p>`;
 
   
   constructor(
@@ -79,8 +82,14 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
   
   }
 
+  public onChange({ editor }: ChangeEvent) {
+    const data = editor.getData();
+    this.contentDto.value =data
+  }
 
   ngOnInit(): void {
+
+
 
     this.actionName ="Create";
 
@@ -91,7 +100,6 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
       id :""
     }
     this.contentId = this.activatedRoute.snapshot.params["contentId"];
-    console.log(this.contentId)
     if(this.contentId)
       {
 
@@ -99,26 +107,19 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
         this.contentService.getCMSContent(this.contentId).subscribe(res => {
           this.contentDto = res
           this.nameContent = this.contentDto.name
-    
+          this.data = this.contentDto.value
         })  
       }
       
 
     }
 
-    public onReady(editor: any) {
-      console.log("CKEditor5 Angular Component is ready to use!", editor);
-    }
-    public onChange({ editor }: ChangeEvent) {
-      const data = editor.getData();
-
-      this.contentDto.value =data;
-      console.log(data);
-    }
+  
 
     onSubmit()
     {
           this.contentDto.name = this.nameContent;
+       
           this.contentService.insertOrUpdateCMSContent(this.contentDto.id , this.contentDto.name , this.contentDto.value).subscribe(res => {
 
               this.location.back();

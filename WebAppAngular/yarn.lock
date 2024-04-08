@@ -1620,7 +1620,7 @@
   dependencies:
     ckeditor5 "41.2.1"
 
-"@ckeditor/ckeditor5-core@41.2.1", "@ckeditor/ckeditor5-core@^41.2.1":
+"@ckeditor/ckeditor5-core@41.2.1":
   version "41.2.1"
   resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-core/-/ckeditor5-core-41.2.1.tgz"
   integrity sha512-h75yyYy17a8Zj7SayWcNCevzD/JKosHGDIeGQht4R0HxfT+/108AGxRA8ELpAaiPTvb9uoOLSQg5DiM/hPjHuQ==
@@ -1644,7 +1644,7 @@
     ckeditor5 "41.2.1"
     lodash-es "4.17.21"
 
-"@ckeditor/ckeditor5-engine@41.2.1", "@ckeditor/ckeditor5-engine@^41.2.1":
+"@ckeditor/ckeditor5-engine@41.2.1":
   version "41.2.1"
   resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-41.2.1.tgz"
   integrity sha512-p2XtuSL7TGzgKHWPV/N8M0bX0I/ygmBTZ+D90TwqgW8cKCNYCTluQvceAleoRJAuovPK/KAi8OeDj/TjXXkakA==
@@ -1788,14 +1788,14 @@
     "@ckeditor/ckeditor5-ui" "41.2.1"
     "@ckeditor/ckeditor5-utils" "41.2.1"
 
-"@ckeditor/ckeditor5-utils@41.2.1", "@ckeditor/ckeditor5-utils@^41.2.1":
+"@ckeditor/ckeditor5-utils@41.2.1":
   version "41.2.1"
   resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-41.2.1.tgz"
   integrity sha512-yBtKU3QteYieEU3Wa8Wj1fea4CBFqmsemhesOIb7K5JYHFBs7xQ+efAaTWL+YTSOt/y50SEy2BCK+9mUkRohBg==
   dependencies:
     lodash-es "4.17.21"
 
-"@ckeditor/ckeditor5-watchdog@41.2.1", "@ckeditor/ckeditor5-watchdog@^41.2.1":
+"@ckeditor/ckeditor5-watchdog@41.2.1":
   version "41.2.1"
   resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-watchdog/-/ckeditor5-watchdog-41.2.1.tgz"
   integrity sha512-3Y/PPS9dTzIL/TsGf23lz4QxW6Y8/up62afict7YLH2p4g85KMxyDWhZJui8QYsonALjoWy34vSlMTI/WbMM4w==
