@@ -81,10 +81,7 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
   
   }
 
-  public onChange({ editor }: ChangeEvent) {
-    const data = editor.getData();
-    this.contentDto.value =data
-  }
+
 
   ngOnInit(): void {
 

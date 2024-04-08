@@ -60,21 +60,6 @@ export class ContentComponent extends AbstractContentComponent {
   ) 
   {
     super();
-    // this.contentService.getAll().subscribe(res => {
-    //   console.log(res)
-
-    // })  
-    // this.contentService.insertOrUpdateCMSContent("1C962072-422C-FE6A-E884-3A11CF670281" , "morshed tttt" , "morshedttt").subscribe(res => {
-    //   console.log(res)
-
-    // })  
-    // this.contentService.getCMSContent("36104E08-43A5-BEAE-C9CF-3A11CD22E7EA").subscribe(res => {
-    //   console.log(res)
-
-    // })  
-
-
- 
   }
 
   CreateContent() {
