@@ -29,10 +29,16 @@ namespace MyPlugIn.Contents
         {
         }
 
-        public virtual async Task<List<ContentDto>> GetAll()
+        public virtual async Task<PagedResultDto<ContentDto>> GetAll(GetContentsInput input)
         {
-            var items = await _contentRepository.GetListAsync();
-            return ObjectMapper.Map<List<Content>, List<ContentDto>>(items);
+            var totalCount = await _contentRepository.GetCountAsync(input.FilterText, input.Name, input.Value);
+            var items = await _contentRepository.GetListAsync(input.FilterText, input.Name, input.Value, input.Sorting, input.MaxResultCount, input.SkipCount);
+
+            return new PagedResultDto<ContentDto>
+            {
+                TotalCount = totalCount,
+                Items = ObjectMapper.Map<List<Content>, List<ContentDto>>(items)
+            };
         }
 
         public virtual async Task<ContentDto> GetCMSContent(Guid id)

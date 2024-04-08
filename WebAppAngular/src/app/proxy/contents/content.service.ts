@@ -40,11 +40,19 @@ export class ContentService {
         },
         { apiName: this.apiName, ...config }
       );
-      getAll = ( config?: Partial<Rest.Config>) =>
-        this.restService.request<any, ContentDto[]>(
+      getAll = (input: GetContentsInput, config?: Partial<Rest.Config>) =>
+        this.restService.request<any, PagedResultDto<ContentDto>>(
           {
             method: 'GET',
-            url: `/api/app/plugin/contents/get-all`,
+            url: '/api/app/plugin/contents/get-all',
+            params: {
+              filterText: input.filterText,
+              sorting: input.sorting,
+              skipCount: input.skipCount,
+              maxResultCount: input.maxResultCount,
+              name: input.name,
+              value: input.value,
+            },
           },
           { apiName: this.apiName, ...config }
         );

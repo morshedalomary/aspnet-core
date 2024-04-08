@@ -18,9 +18,22 @@ namespace MyPlugIn.Contents
     {
         public EfCoreContentRepository(IDbContextProvider<MyPlugInDbContext> dbContextProvider)
             : base(dbContextProvider)
-        {
-        }
+        { }
 
-       
+        public virtual async Task<List<Content>> GetAll(
+     string? filterText = null,
+     string? name = null,
+     string? value = null,
+     string? sorting = null,
+     int maxResultCount = int.MaxValue,
+     int skipCount = 0,
+     CancellationToken cancellationToken = default)
+        {
+            var query = ApplyFilter((await GetQueryableAsync()), filterText, name, value);
+            query = query.OrderBy(string.IsNullOrWhiteSpace(sorting) ? ContentConsts.GetDefaultSorting(false) : sorting);
+            return await query.PageBy(skipCount, maxResultCount).ToListAsync(cancellationToken);
+        }
     }
-}
+
+} 
+    

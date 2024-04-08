@@ -21,15 +21,19 @@ namespace MyPlugIn.Contents
         }
         [HttpGet]
         [Route("get-all")]
-        public  async Task<List<ContentDto>> GetAll()
+        public async virtual Task<PagedResultDto<ContentDto>> GetAll(GetContentsInput input)
         {
 
             List<ContentDto> allContent = new List<ContentDto>();
 
-            allContent = await _contentsAppService.GetAll();
+            return await _contentsAppService.GetAll(input);
 
-            return allContent;
+           
         }
+
+      
+
+
         [HttpGet]
         [Route("get-cms-content/{id}")]
         public  async Task<ContentDto> GetCMSContent(Guid id)

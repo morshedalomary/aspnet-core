@@ -110,7 +110,7 @@ export abstract class AbstractContentViewService {
 
   hookToQuery() {
     const getData = (query: ABP.PageQueryParams) =>
-      this.proxyService.getList({
+      this.proxyService.getAll({
         ...query,
         ...this.filters,
         filterText: query.filter,
