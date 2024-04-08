@@ -66,7 +66,6 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
   contentDto : ContentDto 
   nameContent : string
   public Editor = ClassicEditor;
-  @ViewChild("myEditor", { static: false }) myEditor: any;
 
   actionName: string ;
   data: any = `<p>Hello, world!</p>`;
