@@ -1,0 +1,25 @@
+{
+  "production": true,
+  "application": {
+    "baseUrl":"http://localhost:4200",
+    "name": "MyPlugIn",
+    "logoUrl": ""
+  },
+  "oAuthConfig": {
+    "issuer": "https://localhost:44305/",
+    "redirectUri": "http://localhost:4200",
+    "clientId": "MyPlugIn_App",
+    "responseType": "code",
+    "scope": "offline_access openid profile email phone MyPlugIn"
+  },
+  "apis": {
+    "default": {
+      "url": "https://localhost:44305",
+      "rootNamespace": "MyPlugIn"
+    },
+    "AbpAccountPublic": {
+      "url": "https://localhost:44305",
+      "rootNamespace": "AbpAccountPublic"
+    }
+  }
+}

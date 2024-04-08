@@ -1,0 +1,1 @@
+dotnet run --project MasterProject --migrate-database
