@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProject", "MasterProj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPlugIn", "MyPlugIn\MyPlugIn\MyPlugIn.csproj", "{71AE45FA-9FC0-4F8A-BB28-4F8B0B7DDA3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppAngular", "WebAppAngular\WebAppAngular.csproj", "{0BF215BE-4AC6-41F2-B202-6FFD749836D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{71AE45FA-9FC0-4F8A-BB28-4F8B0B7DDA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71AE45FA-9FC0-4F8A-BB28-4F8B0B7DDA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71AE45FA-9FC0-4F8A-BB28-4F8B0B7DDA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF215BE-4AC6-41F2-B202-6FFD749836D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF215BE-4AC6-41F2-B202-6FFD749836D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF215BE-4AC6-41F2-B202-6FFD749836D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF215BE-4AC6-41F2-B202-6FFD749836D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

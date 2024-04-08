@@ -1,0 +1,21 @@
+{
+  "production": true,
+  "application": {
+    "baseUrl":"https://masterproject-web",
+    "name": "MasterProject",
+    "logoUrl": ""
+  },
+  "oAuthConfig": {
+    "issuer": "https://masterproject-api/",
+    "redirectUri": "https://masterproject",
+    "clientId": "MasterProject_App",
+    "responseType": "code",
+    "scope": "offline_access openid profile email phone"
+  },
+  "apis": {
+    "default": {
+      "url": "https://masterproject-api",
+      "rootNamespace": "MasterProject"
+    }
+  }
+}

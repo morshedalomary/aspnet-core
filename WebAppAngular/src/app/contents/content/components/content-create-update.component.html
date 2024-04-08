@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-12 col-sm-auto">
+    
+      <label class="form-label" for="nameFilter">
+       Name of the Content
+      </label>
+
+      <input
+        id="nameFilter"
+        class="form-control  background-white"
+        [(ngModel)]="nameContent"
+        [ngModelOptions]="{ standalone: true }"
+      />
+   
+  </div>
+  </div>
+
+<br/>
+<div class="content" role="main">
+<ckeditor
+  [editor]="Editor"
+  data={{contentDto?.value}}
+  (ready)="onReady($event)"
+  (change)="onChange($event)"
+  >
+</ckeditor>
+</div>
+<div >
+<button class="btn   btn-primary" type="submit" (click)="onSubmit()">
+
+  <span class="btn-name">{{actionName}}</span>
+</button>   
+<button class="btn btn-light" (click)="back()">
+  <span class="btn-name">Back</span>
+</button>
+</div>
+
+
+
+
+

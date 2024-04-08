@@ -1,5 +1,4 @@
-using MasterProject.Contents;
-using Volo.Abp.EntityFrameworkCore.Modeling;
+
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -19,7 +18,6 @@ namespace MasterProject.Data;
 
 public class MasterProjectDbContext : AbpDbContext<MasterProjectDbContext>
 {
-    public DbSet<Content> Contents { get; set; } = null!;
     public const string DbTablePrefix = "App";
     public const string DbSchema = null;
 
@@ -47,25 +45,6 @@ public class MasterProjectDbContext : AbpDbContext<MasterProjectDbContext>
         builder.ConfigureBlobStoring();
         builder.ConfigureGdpr();
 
-        /* Configure your own entities here */
-        if (builder.IsHostDatabase())
-        {
-
-        }
-        if (builder.IsHostDatabase())
-        {
-
-        }
-        if (builder.IsHostDatabase())
-        {
-            builder.Entity<Content>(b =>
-            {
-                b.ToTable(DbTablePrefix + "Contents", DbSchema);
-                b.ConfigureByConvention();
-                b.Property(x => x.Name).HasColumnName(nameof(Content.Name));
-                b.Property(x => x.Value).HasColumnName(nameof(Content.Value));
-            });
-
-        }
+      
     }
 }

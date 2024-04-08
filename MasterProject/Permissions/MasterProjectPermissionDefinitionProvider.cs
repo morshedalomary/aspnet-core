@@ -13,10 +13,7 @@ public class MasterProjectPermissionDefinitionProvider : PermissionDefinitionPro
         //Define your own permissions here. Example:
         //myGroup.AddPermission(MasterProjectPermissions.MyPermission1, L("Permission:MyPermission1"));
 
-        var contentPermission = myGroup.AddPermission(MasterProjectPermissions.Contents.Default, L("Permission:Contents"));
-        contentPermission.AddChild(MasterProjectPermissions.Contents.Create, L("Permission:Create"));
-        contentPermission.AddChild(MasterProjectPermissions.Contents.Edit, L("Permission:Edit"));
-        contentPermission.AddChild(MasterProjectPermissions.Contents.Delete, L("Permission:Delete"));
+   
     }
 
     private static LocalizableString L(string name)
