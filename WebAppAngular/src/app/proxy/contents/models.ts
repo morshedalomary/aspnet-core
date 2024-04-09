@@ -5,6 +5,13 @@ export interface ContentCreateDto {
   value?: string;
 }
 
+export interface ContentCreateUpdateDto {
+  id?: string
+  name?: string;
+  value?: string;
+}
+
+
 export interface ContentDto extends FullAuditedEntityDto<string> {
   name?: string;
   value?: string;

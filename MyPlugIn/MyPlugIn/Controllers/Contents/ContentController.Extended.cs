@@ -43,11 +43,11 @@ namespace MyPlugIn.Contents
         [HttpPost]
         [Route("insert-update-content")]
 
-        public async Task<ContentDto> InsertOrUpdateCMSContent(Guid id , string Name , string Value)
+        public async Task<ContentDto> InsertOrUpdateCMSContent(ContentCreateUpdateDto contentDto)
         {
-            return await _contentsAppService.InsertOrUpdateCMSContent(id, Name , Value);
+            return await _contentsAppService.InsertOrUpdateCMSContent(contentDto);
 
         }
-
+    
     }
 }

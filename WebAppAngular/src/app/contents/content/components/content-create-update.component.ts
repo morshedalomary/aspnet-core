@@ -19,7 +19,7 @@ import {
   ChildTabDependencies,
   ChildComponentDependencies,
 } from './content.abstract.component';
-import { ContentDto, ContentService } from '@proxy/contents';
+import { ContentCreateUpdateDto, ContentDto, ContentService } from '@proxy/contents';
 import { ActivatedRoute } from '@angular/router';
 
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -63,7 +63,7 @@ import { Location } from '@angular/common'
 export class ContentCreateUpdateComponent extends AbstractContentComponent {
 
   contentId: string;
-  contentDto : ContentDto 
+  contentCreateUpdateDto : ContentCreateUpdateDto
   nameContent : string
   public Editor = ClassicEditor;
 
@@ -82,28 +82,42 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
   }
 
 
-
+onReady(eventData) {
+    eventData.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+      console.log(btoa(loader.file));
+      return new UploadAdapter(loader);
+    };
+  }
   ngOnInit(): void {
 
-
+    ClassicEditor
+    .create( this.Editor, {
+        cloudServices: {
+            tokenUrl: 'https://example.com/cs-token-endpoint',
+            uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
+        }
+    } )
+    .then( )
+    .catch( );
 
     this.actionName ="Create";
 
-    this.contentDto =
+    this.contentCreateUpdateDto =
     {
       name : "",
       value :"",
       id :""
     }
+ 
     this.contentId = this.activatedRoute.snapshot.params["contentId"];
     if(this.contentId)
       {
 
         this.actionName = "Update";
         this.contentService.getCMSContent(this.contentId).subscribe(res => {
-          this.contentDto = res
-          this.nameContent = this.contentDto.name
-          this.data = this.contentDto.value
+          this.contentCreateUpdateDto = res
+          this.nameContent = this.contentCreateUpdateDto.name
+          this.data = this.contentCreateUpdateDto.value
         })  
       }
       
@@ -114,9 +128,9 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
 
     onSubmit()
     {
-          this.contentDto.name = this.nameContent;
+          this.contentCreateUpdateDto.name = this.nameContent;
        
-          this.contentService.insertOrUpdateCMSContent(this.contentDto.id , this.contentDto.name , this.contentDto.value).subscribe(res => {
+          this.contentService.insertOrUpdateCMSContent(this.contentCreateUpdateDto).subscribe(res => {
 
               this.location.back();
 
@@ -131,4 +145,26 @@ export class ContentCreateUpdateComponent extends AbstractContentComponent {
       this.location.back();
 
     }
+}
+
+
+export class UploadAdapter {
+  private loader;
+  constructor(loader: any) {
+    this.loader = loader;
+  }
+
+  upload() {
+    return this.loader.file
+          .then( file => new Promise( ( resolve, reject ) => {
+                var myReader= new FileReader();
+                myReader.onloadend = (e) => {
+                   resolve({ default: myReader.result });
+                }
+
+                myReader.readAsDataURL(file);
+          } ) );
+ };
+
+
 }

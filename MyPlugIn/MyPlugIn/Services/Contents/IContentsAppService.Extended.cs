@@ -8,6 +8,6 @@ namespace MyPlugIn.Contents
 
         Task<PagedResultDto<ContentDto>> GetAll(GetContentsInput input);
         Task<ContentDto> GetCMSContent(Guid id);
-        Task<ContentDto> InsertOrUpdateCMSContent(Guid Id , string Name , string Value);
+        Task<ContentDto> InsertOrUpdateCMSContent(ContentCreateUpdateDto contentCreateUpdateDto);
     }
 }

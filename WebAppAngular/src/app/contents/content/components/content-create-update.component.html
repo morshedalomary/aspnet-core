@@ -17,7 +17,7 @@
 
 <br/>
 <div class="content" role="main">
-  <ckeditor [editor]="Editor" [data]="data" [(ngModel)]="contentDto.value" > </ckeditor>
+  <ckeditor [editor]="Editor" [data]="data" [(ngModel)]="contentCreateUpdateDto.value"  (ready)="onReady($event)"> </ckeditor>
 
 </div>
 <div >

@@ -1,5 +1,6 @@
 import type {
   ContentCreateDto,
+  ContentCreateUpdateDto,
   ContentDto,
   ContentExcelDownloadDto,
   ContentUpdateDto,
@@ -16,17 +17,12 @@ import type { DownloadTokenResultDto } from '../shared/models';
 export class ContentService {
   apiName = 'Default';
 
-  insertOrUpdateCMSContent = (id : string , name : string , value : string , config?: Partial<Rest.Config>) =>
+  insertOrUpdateCMSContent = (input: ContentCreateUpdateDto , config?: Partial<Rest.Config>) =>
     this.restService.request<any, ContentDto>(
       {
         method: 'POST',
         url: '/api/app/plugin/contents/insert-update-content',
-        params: {
-          id: id,
-      
-          name: name,
-          value: value,
-        },
+        body: input
      
       },
       { apiName: this.apiName, ...config }
